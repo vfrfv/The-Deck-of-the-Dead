@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 public class RunningState : MovementState
 {
@@ -18,8 +19,9 @@ public class RunningState : MovementState
     public override void Update()
     {
         base.Update();
+        _character.transform.Translate(0, 0, 3 * Time.deltaTime);
 
-        if (// ”слови€ дл€ перехода в јйдл—тате)
+        if (Input.GetKeyDown(KeyCode.A))
             StateSwitcher.SwitchState<IdlingState>();
     }
 }

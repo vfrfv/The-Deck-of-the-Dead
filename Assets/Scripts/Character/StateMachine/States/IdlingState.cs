@@ -12,7 +12,7 @@ public class IdlingState : MovementState
     {
         base.Update();
 
-        if (// Условия перехода в ходьбу)
+        if (Input.GetKeyDown(KeyCode.D))
             StateSwitcher.SwitchState<RunningState>();
     }
 }
