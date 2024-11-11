@@ -1,26 +1,25 @@
 using UnityEngine;
 
-//[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(CharacterMovement))]
 public class Character : MonoBehaviour
 {
-    private CharacterMovement _movement; //тут по уроку должно быть поле PlayerInput которое является New Input System
+    [SerializeField] private CharacterView _characterView;
+
+    private CharacterMovement _movement;
     private CharacterStateMachine _stateMachine;
-    //private CharacterController _characterController;
 
     public CharacterMovement Movement => _movement;
-    //public CharacterController Controller => _characterController;
+    public CharacterView CharacterView => _characterView;
 
     private void Awake()
     {
-        //_characterController = GetComponent<CharacterController>();
+        _characterView.Initialize();
         _movement = GetComponent<CharacterMovement>();
         _stateMachine = new CharacterStateMachine(this);
     }
 
     private void Update()
     {
-        _stateMachine.HandleInput();
-
         _stateMachine.Update();
     }
 }

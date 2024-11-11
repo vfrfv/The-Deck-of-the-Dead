@@ -41,7 +41,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: WeaponIdle
+      name: WeaponIdle2Hands
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
