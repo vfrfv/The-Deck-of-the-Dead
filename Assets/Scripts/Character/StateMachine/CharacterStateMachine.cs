@@ -12,15 +12,9 @@ public class CharacterStateMachine: IStateSwitcher
 
         _states = new List<IState>()
         {
-            new IdlingMelleState(this, data, character),
-            new IdlingPistolState(this, data, character),
-            new Idling2Hands(this, data, character),
-            new RunningDefaultState(this, data, character),
-            new RunningPistolState(this, data, character),
-            new Running2HandsState(this, data, character),
-            new MelleAttackState(this, data, character),
-            new ShootingPistolState(this, data, character),
-            new Shooting2HandsState(this, data, character)
+            new IdlingState(this, data, character),
+            new RunningState(this, data, character),
+            new AttackState(this, data, character)
         };
 
         _currentState = _states[0];

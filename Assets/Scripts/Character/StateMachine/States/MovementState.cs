@@ -15,6 +15,7 @@ public class MovementState : IState
     }
 
     protected CharacterView CharacterView => _character.CharacterView;
+    protected Character Character => _character;
 
     public virtual void Enter()
     {
@@ -29,5 +30,6 @@ public class MovementState : IState
     {
     }
 
-    protected bool IsMoving() => Data.Speed == 0;
+    protected bool IsMoving() => Character.Movement.NavMeshAgent.speed == 0;
+    protected bool IsAttacking() => Character.CharacterShooting.IsShooting;
 }
