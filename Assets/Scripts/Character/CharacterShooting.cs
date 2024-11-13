@@ -4,18 +4,26 @@ using UnityEngine;
 public class CharacterShooting : MonoBehaviour
 {
     [SerializeField] private Weapon _currentWeapon;
+    [SerializeField] private Transform _weaponPoint;
     [SerializeField] private float _radius;
 
     private Enemy _currentEnemy;
-    private Coroutine _searchEnemy;
-    private Coroutine _shooting;
 
     public bool IsShooting { get; private set; } = false;
     public Weapon CurrentWeapon => _currentWeapon;
 
     private void Start()
     {
-        _searchEnemy = StartCoroutine(SearchEnemy());
+        Instantiate(_currentWeapon, _weaponPoint);
+        StartCoroutine(SearchEnemy());
+    }
+
+    private void Update()
+    {
+        if (_currentEnemy != null)
+        {
+            transform.LookAt(_currentEnemy.transform);
+        }
     }
 
     private IEnumerator Shooting()
@@ -24,14 +32,11 @@ public class CharacterShooting : MonoBehaviour
 
         var delay = new WaitForSeconds(_currentWeapon.DelayBetweenShots);
 
-        if (_searchEnemy != null)
-        {
-            StopCoroutine(SearchEnemy());
-        }
+        StopCoroutine(SearchEnemy());
 
         while (_currentEnemy != null)
         {
-            _currentEnemy.TakeDamage(_currentWeapon.Damage);
+            _currentEnemy.TakeDamage(_currentWeapon.Shooting());
 
             yield return delay;
         }
@@ -41,10 +46,7 @@ public class CharacterShooting : MonoBehaviour
     {
         IsShooting = false;
 
-        if (_shooting != null)
-        {
-            StopCoroutine(Shooting());
-        }
+        StopCoroutine(Shooting());
 
         while (_currentEnemy == null)
         {
@@ -55,8 +57,6 @@ public class CharacterShooting : MonoBehaviour
             {
                 rigidbody = overlappedColliders[i].attachedRigidbody;
 
-                Debug.Log(rigidbody);
-
                 if (rigidbody)
                 {
                     if (rigidbody.gameObject.TryGetComponent(out Enemy enemy))
@@ -64,7 +64,7 @@ public class CharacterShooting : MonoBehaviour
                         _currentEnemy = enemy;
                         _currentEnemy.Diying += TargetKilled;
 
-                        _shooting = StartCoroutine(Shooting());
+                        StartCoroutine(Shooting());
                         break;
                     }
                 }
