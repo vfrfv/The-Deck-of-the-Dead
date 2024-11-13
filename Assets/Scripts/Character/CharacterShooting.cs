@@ -4,17 +4,18 @@ using UnityEngine;
 public class CharacterShooting : MonoBehaviour
 {
     [SerializeField] private CharacterScaning _characterScaning;
-    [SerializeField] private Weapon _currentWeapon;
+    [SerializeField] private Weapon _weaponPrefab;
     [SerializeField] private Transform _weaponPoint;
 
     private Enemy _currentEnemy;
+    private Weapon _weapon;
 
     public bool IsShooting { get; private set; } = false;
-    public Weapon CurrentWeapon => _currentWeapon;
+    public Weapon CurrentWeapon => _weaponPrefab;
 
     private void Start()
     {
-        Instantiate(_currentWeapon, _weaponPoint);
+        _weapon = Instantiate(_weaponPrefab, _weaponPoint);
     }
 
     private void Update()
@@ -35,11 +36,11 @@ public class CharacterShooting : MonoBehaviour
 
     private IEnumerator Shooting()
     {
-        var delay = new WaitForSeconds(_currentWeapon.DelayBetweenShots);
+        var delay = new WaitForSeconds(_weaponPrefab.DelayBetweenShots);
 
         while (_currentEnemy != null)
         {
-            _currentEnemy.TakeDamage(_currentWeapon.Shooting());
+            _currentEnemy.TakeDamage(_weapon.Shooting());
 
             yield return delay;
         }

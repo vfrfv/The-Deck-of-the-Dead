@@ -14,7 +14,7 @@ public class Weapon : MonoBehaviour
 
     public int Shooting()
     {
-        Instantiate(_bullet, _bulletPoint);
+        Instantiate(_bullet, _bulletPoint.position, _bulletPoint.rotation);
         _shotEffect.Play();
 
         return _damage;
