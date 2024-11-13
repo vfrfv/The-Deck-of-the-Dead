@@ -8,17 +8,12 @@ public class CharacterScaning : MonoBehaviour
 
     private Enemy _currentEnemy;
 
-    private void OnEnable()
+    private void Start()
     {
         StartCoroutine(SearchEnemy());
     }
 
-    private void OnDisable()
-    {
-        StopCoroutine(SearchEnemy());
-    }
-
-    private IEnumerator SearchEnemy()
+    public IEnumerator SearchEnemy()
     {
         while (_currentEnemy == null)
         {
@@ -35,7 +30,6 @@ public class CharacterScaning : MonoBehaviour
                     {
                         _currentEnemy = enemy;
                         _characterShooting.ActivShooting(_currentEnemy);
-                        this.enabled = false;
                     }
                 }
             }

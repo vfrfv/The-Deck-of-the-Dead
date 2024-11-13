@@ -29,6 +29,7 @@ public class CharacterShooting : MonoBehaviour
     {
         _currentEnemy = enemy;
         IsShooting = true;
+        StopCoroutine(_characterScaning.SearchEnemy());
         StartCoroutine(Shooting());
     }
 
@@ -43,8 +44,8 @@ public class CharacterShooting : MonoBehaviour
             yield return delay;
         }
 
-        _characterScaning.enabled = true;
         _currentEnemy = null;
         IsShooting = false;
+        StartCoroutine(_characterScaning.SearchEnemy());
     }
 }
