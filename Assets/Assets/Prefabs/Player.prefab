@@ -3324,6 +3324,7 @@ GameObject:
   - component: {fileID: 5605027905101307380}
   - component: {fileID: 8362804002354954245}
   - component: {fileID: 4832717163306357467}
+  - component: {fileID: 5890741567366463251}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3339,7 +3340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820013058228350869}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.67429596, z: 0, w: 0.7384612}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -76.19, y: 0.124, z: 11.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3376,7 +3377,7 @@ Transform:
   - {fileID: 1825326879264814263}
   - {fileID: 1822437003767436379}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 84.799, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!95 &1734173570431095273
 Animator:
   serializedVersion: 5
@@ -3523,9 +3524,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbaa0b2a7fc39a4c95a540a27fe5860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterScaning: {fileID: 5890741567366463251}
   _currentWeapon: {fileID: 8882552771575711017, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
   _weaponPoint: {fileID: 3112779362971448169}
-  _radius: 5
+--- !u!114 &5890741567366463251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820013058228350869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2216e442c39302e479a1c581f9f6ea25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterShooting: {fileID: 4832717163306357467}
+  _radius: 10
 --- !u!1 &1820299849512806003
 GameObject:
   m_ObjectHideFlags: 0

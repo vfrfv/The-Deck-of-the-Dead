@@ -3,6 +3,8 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private ParticleSystem _shotEffect;
+    [SerializeField] private Bullet _bullet;
+    [SerializeField] private Transform _bulletPoint;
     [SerializeField] private WeaponStatus _weaponStatus;
     [SerializeField] private int _damage;
     [SerializeField] private float _delayBetweenShots;
@@ -12,7 +14,9 @@ public class Weapon : MonoBehaviour
 
     public int Shooting()
     {
+        Instantiate(_bullet, _bulletPoint);
         _shotEffect.Play();
+
         return _damage;
     }
 }
