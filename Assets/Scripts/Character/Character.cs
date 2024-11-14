@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterMovement))]
-public class Character : MonoBehaviour
+public class Character : Health
 {
     [SerializeField] private CharacterView _characterView;
 
@@ -24,5 +24,15 @@ public class Character : MonoBehaviour
     private void Update()
     {
         _stateMachine.Update();
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        Value -= damage;
+
+        if (Value <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

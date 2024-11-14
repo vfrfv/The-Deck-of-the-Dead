@@ -4,7 +4,7 @@ public class RunningState : MovementState
     const string IsRunningPistol = "IsRunningPistol";
     const string IsRunningRifle = "IsRunningRifle";
 
-    public RunningState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) : base(stateSwitcher, data, character)
+    public RunningState(IStateSwitcher stateSwitcher, Character character) : base(stateSwitcher, character)
     {
     }
 

@@ -1,21 +1,41 @@
 using System;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+[RequireComponent(typeof(EnemyMovement))]
+public class Enemy : Health
 {
-    [SerializeField] private int _health;
+    [SerializeField] private ZombieView _zombieView;
 
-    private Character _target;
+    private Character _character;
+    private ZombieAttack _zombieAttack;
+    private EnemyMovement _movement;
+    private ZombieStateMachine _zombieStateMachine;
 
     public event Action Diying;
 
-    public Character Target => _target;
+    public EnemyMovement Movement => _movement;
+    public Character Target => _character;
+    public ZombieView ZombieView => _zombieView;
+    public ZombieAttack ZombieAttack => _zombieAttack;
 
-    public void TakeDamage(int damage)
+    private void Awake()
     {
-        _health -= damage;
+        _zombieAttack = GetComponent<ZombieAttack>();
+        _zombieView.Initialize();
+        _movement = GetComponent<EnemyMovement>();
+        _zombieStateMachine = new ZombieStateMachine(this);
+    }
 
-        if (_health <= 0)
+    private void Update()
+    {
+        _zombieStateMachine.Update();
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        Value -= damage;
+
+        if (Value <= 0)
         {
             Diying?.Invoke();
             Destroy(gameObject);
@@ -24,6 +44,6 @@ public class Enemy : MonoBehaviour
 
     public void InitializeTarget(Character target)
     {
-        _target = target;
+        _character = target;
     }
 }

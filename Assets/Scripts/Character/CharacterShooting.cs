@@ -36,7 +36,7 @@ public class CharacterShooting : MonoBehaviour
 
     private IEnumerator Shooting()
     {
-        var delay = new WaitForSeconds(_weaponPrefab.DelayBetweenShots);
+        var delay = new WaitForSeconds(_weapon.DelayBetweenShots);
 
         while (_currentEnemy != null)
         {

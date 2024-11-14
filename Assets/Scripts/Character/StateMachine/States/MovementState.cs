@@ -3,14 +3,12 @@ using UnityEngine;
 public class MovementState : IState
 {
     protected readonly IStateSwitcher StateSwitcher;
-    protected readonly StateMachineData Data;
 
     private readonly Character _character;
 
-    public MovementState(IStateSwitcher stateSwitcher, StateMachineData data, Character character)
+    public MovementState(IStateSwitcher stateSwitcher, Character character)
     {
         StateSwitcher = stateSwitcher;
-        Data = data;
         _character = character;
     }
 
@@ -19,7 +17,6 @@ public class MovementState : IState
 
     public virtual void Enter()
     {
-        Debug.Log(GetType());
     }
 
     public virtual void Exit()

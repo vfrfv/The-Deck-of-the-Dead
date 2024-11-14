@@ -3320,8 +3320,8 @@ GameObject:
   - component: {fileID: 7379276215596355340}
   - component: {fileID: 1990833505337555643}
   - component: {fileID: 8446430812979880857}
-  - component: {fileID: 5142152912606087712}
   - component: {fileID: 5605027905101307380}
+  - component: {fileID: 5142152912606087712}
   - component: {fileID: 8362804002354954245}
   - component: {fileID: 4832717163306357467}
   - component: {fileID: 5890741567366463251}
@@ -3471,6 +3471,20 @@ CapsuleCollider:
   m_Height: 2.1076577
   m_Direction: 1
   m_Center: {x: 0, y: 0.951156, z: 0}
+--- !u!114 &5605027905101307380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820013058228350869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e5a4551b67f107468be0bfba4ce74ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 100
+  _characterView: {fileID: 8362804002354954245}
 --- !u!114 &5142152912606087712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3487,19 +3501,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
---- !u!114 &5605027905101307380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1820013058228350869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e5a4551b67f107468be0bfba4ce74ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _characterView: {fileID: 8362804002354954245}
 --- !u!114 &8362804002354954245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3525,7 +3526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _characterScaning: {fileID: 5890741567366463251}
-  _currentWeapon: {fileID: 8882552771575711017, guid: ad49a19d2c4adc94b838606a5d459f85, type: 3}
+  _weaponPrefab: {fileID: 0}
   _weaponPoint: {fileID: 3112779362971448169}
 --- !u!114 &5890741567366463251
 MonoBehaviour:

@@ -7,6 +7,9 @@ public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent _navMesh;
     private Enemy _enemy;
+    private float _speed = 5;
+
+    public NavMeshAgent NavMeshAgent => _navMesh;
 
     private void Awake()
     {
@@ -21,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void MoveToPoint()
     {
+        _navMesh.speed = _speed;
         _navMesh.SetDestination(_enemy.Target.transform.position);
     }
 }

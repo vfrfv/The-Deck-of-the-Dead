@@ -4,7 +4,7 @@ public class IdlingState : MovementState
     const string IsIdlingPistol = "IsIdlingPistol";
     const string IsIdlingRifle = "IsIdlingRifle";
 
-    public IdlingState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) : base(stateSwitcher, data, character)
+    public IdlingState(IStateSwitcher stateSwitcher, Character character) : base(stateSwitcher, character)
     {
     }
 

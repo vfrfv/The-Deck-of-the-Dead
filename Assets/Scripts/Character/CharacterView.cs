@@ -1,12 +1,9 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
-public class CharacterView : MonoBehaviour
+public class CharacterView : CreatureView
 {
-    private Animator _animator;
+    public override void Initialize() => _animator = GetComponent<Animator>();
 
-    public void Initialize() => _animator = GetComponent<Animator>();
-
-    public void StartState(string state) => _animator.SetBool(state, true);
-    public void StopState(string state) => _animator.SetBool(state, false);
+    public override void StartState(string state) => _animator.SetBool(state, true);
+    public override void StopState(string state) => _animator.SetBool(state, false);
 }

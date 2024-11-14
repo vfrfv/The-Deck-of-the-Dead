@@ -4,7 +4,7 @@ public class AttackState : MovementState
     const string IsShootingPistol = "IsShootingPistol";
     const string IsShootingRifle = "IsShootingRifle";
 
-    public AttackState(IStateSwitcher stateSwitcher, StateMachineData data, Character character) : base(stateSwitcher, data, character)
+    public AttackState(IStateSwitcher stateSwitcher, Character character) : base(stateSwitcher, character)
     {
     }
 

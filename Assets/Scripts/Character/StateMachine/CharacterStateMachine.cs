@@ -8,13 +8,11 @@ public class CharacterStateMachine: IStateSwitcher
 
     public CharacterStateMachine(Character character)
     {
-        StateMachineData data = new StateMachineData();
-
         _states = new List<IState>()
         {
-            new IdlingState(this, data, character),
-            new RunningState(this, data, character),
-            new AttackState(this, data, character)
+            new IdlingState(this, character),
+            new RunningState(this, character),
+            new AttackState(this, character)
         };
 
         _currentState = _states[0];

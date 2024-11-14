@@ -4746,11 +4746,14 @@ GameObject:
   m_Component:
   - component: {fileID: 5522031351993476446}
   - component: {fileID: 4241966121000978106}
-  - component: {fileID: 1363540867250756839}
   - component: {fileID: 887062044526659999}
-  - component: {fileID: 4110476206207416630}
   - component: {fileID: 3075367116515557541}
   - component: {fileID: 5914949785107315836}
+  - component: {fileID: 1793918557246672946}
+  - component: {fileID: 6857338918763445364}
+  - component: {fileID: 173381879777323493}
+  - component: {fileID: -5432705806972628380}
+  - component: {fileID: 1783502744295560063}
   m_Layer: 0
   m_Name: Zombie_Bellboy_Male_01
   m_TagString: Untagged
@@ -4834,7 +4837,7 @@ Animator:
   m_GameObject: {fileID: 5489906483210227409}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b20a3c10714a6ac439af479e3273de65, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8682d3714c3d94349be3b2671958e91f, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -4845,19 +4848,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1363540867250756839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5489906483210227409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d24e9ba970207214aaf74eee8dce37c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 50
 --- !u!195 &887062044526659999
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4868,7 +4858,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 0
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -4880,18 +4870,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4110476206207416630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5489906483210227409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e89b4d99f8903e449f851052b3c93c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &3075367116515557541
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4942,6 +4920,75 @@ CapsuleCollider:
   m_Height: 2.7473867
   m_Direction: 1
   m_Center: {x: 0, y: 0.87369335, z: 0}
+--- !u!114 &1793918557246672946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489906483210227409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24e9ba970207214aaf74eee8dce37c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Value: 50
+  _zombieView: {fileID: 173381879777323493}
+--- !u!114 &6857338918763445364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489906483210227409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e89b4d99f8903e449f851052b3c93c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &173381879777323493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489906483210227409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbb45efc1c93fd418f80cace85eac52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5432705806972628380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489906483210227409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e11f8f6b624ef4f8d5140ecd1af2ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zombieSearchTarget: {fileID: 1783502744295560063}
+  _enemyMovement: {fileID: 6857338918763445364}
+  _damage: 5
+  _delayBetweenAttack: 2
+  _attackDistance: 2
+--- !u!114 &1783502744295560063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5489906483210227409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47a1f65ff284eef46b3647c4fc1d5872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zombieAttack: {fileID: -5432705806972628380}
+  _radius: 10
 --- !u!1 &5519423236907205555
 GameObject:
   m_ObjectHideFlags: 0
