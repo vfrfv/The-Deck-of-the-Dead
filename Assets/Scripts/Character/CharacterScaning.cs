@@ -4,7 +4,6 @@ using UnityEngine;
 public class CharacterScaning : MonoBehaviour
 {
     [SerializeField] private CharacterShooting _characterShooting;
-    [SerializeField] private float _radius;
 
     private Enemy _currentEnemy;
 
@@ -17,7 +16,7 @@ public class CharacterScaning : MonoBehaviour
     {
         while (_currentEnemy == null)
         {
-            Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _radius);
+            Collider[] overlappedColliders = Physics.OverlapSphere(transform.position, _characterShooting.CurrentWeapon.AttackDistance);
             Rigidbody rigidbody;
 
             for (int i = 0; i < overlappedColliders.Length; i++)

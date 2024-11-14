@@ -352,10 +352,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shotEffect: {fileID: 1693253732907318118}
   _bullet: {fileID: 2779122238377238336, guid: 7af0025c87c32d548bd8331f3955239a, type: 3}
-  _bulletPoint: {fileID: 1572429514194216416}
+  _bulletPoints:
+  - {fileID: 1572429514194216416}
   _weaponStatus: 2
+  _icon: {fileID: 0}
+  _name: AK
+  _price: 0
+  _attackDistance: 10
   _damage: 10
-  _delayBetweenShots: 0.5
+  _delayBetweenShots: 0.2
 --- !u!1 &7046768850573435664
 GameObject:
   m_ObjectHideFlags: 0

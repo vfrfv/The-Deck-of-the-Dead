@@ -10,6 +10,7 @@ public class ZombieAttack : MonoBehaviour
     [SerializeField] private float _attackDistance;
 
     private Character _currentTarget;
+    private float _distance;
 
     public bool IsAttacking { get; private set; } = false;
 
@@ -32,15 +33,15 @@ public class ZombieAttack : MonoBehaviour
     {
         var delay = new WaitForSeconds(_delayBetweenAttack);
 
-        float distance = Vector3.Distance(_currentTarget.transform.position, transform.position);
-
-        if (distance < _attackDistance)
+        while (_currentTarget != null)
         {
-            _enemyMovement.NavMeshAgent.speed = 0;
-            IsAttacking = true;
+            _distance = Vector3.Distance(transform.position, _currentTarget.transform.position);
 
-            while (_currentTarget != null)
+            if (_distance <= _attackDistance)
             {
+                _enemyMovement.NavMeshAgent.speed = 0;
+                IsAttacking = true;
+
                 _currentTarget.TakeDamage(_damage);
 
                 yield return delay;
