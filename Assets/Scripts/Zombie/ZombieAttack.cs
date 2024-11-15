@@ -14,14 +14,6 @@ public class ZombieAttack : MonoBehaviour
 
     public bool IsAttacking { get; private set; } = false;
 
-    private void Update()
-    {
-        if (_currentTarget != null)
-        {
-            transform.LookAt(_currentTarget.transform);
-        }
-    }
-
     public void ActivateAttack(Character enemy)
     {
         _currentTarget = enemy;
@@ -35,6 +27,7 @@ public class ZombieAttack : MonoBehaviour
 
         while (_currentTarget != null)
         {
+            transform.LookAt(_currentTarget.transform);
             _distance = Vector3.Distance(transform.position, _currentTarget.transform.position);
 
             if (_distance <= _attackDistance)
@@ -46,9 +39,10 @@ public class ZombieAttack : MonoBehaviour
 
                 yield return delay;
             }
+
+            yield return null;
         }
 
-        _currentTarget = null;
         IsAttacking = false;
         StartCoroutine(_zombieSearchTarget.SearchTarget());
     }
