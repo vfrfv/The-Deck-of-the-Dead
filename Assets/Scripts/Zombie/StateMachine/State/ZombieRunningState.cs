@@ -27,6 +27,7 @@ public class ZombieRunningState : ZombieMovementState
         if (IsAttacking())
         {
             StateSwitcher.SwitchState<AttackState>();
+            return;
         }
 
         if (IsMoving())
