@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyMovement))]
-public class Enemy : Health
+public class Enemy : Health, IValue
 {
     [SerializeField] private ZombieView _zombieView;
 
@@ -12,7 +12,10 @@ public class Enemy : Health
     private ZombieStateMachine _zombieStateMachine;
 
     public event Action Diying;
+    public event Action<int> Changed;
 
+    int IValue.MaxValue => MaxValue;
+    int IValue.Value => Value;
     public EnemyMovement Movement => _movement;
     public Character Target => _character;
     public ZombieView ZombieView => _zombieView;
@@ -34,6 +37,7 @@ public class Enemy : Health
     public override void TakeDamage(int damage)
     {
         Value -= damage;
+        Changed?.Invoke(Value);
 
         if (Value <= 0)
         {

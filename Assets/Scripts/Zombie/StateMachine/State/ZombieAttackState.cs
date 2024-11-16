@@ -27,6 +27,6 @@ public class ZombieAttackState : ZombieMovementState
         if (IsAttacking())
             return;
 
-        StateSwitcher.SwitchState<IdlingState>();
+        StateSwitcher.SwitchState<ZombieIdlingState>();
     }
 }

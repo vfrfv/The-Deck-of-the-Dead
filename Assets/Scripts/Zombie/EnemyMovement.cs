@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
 {
     private NavMeshAgent _navMesh;
     private Enemy _enemy;
-    private float _speed = 5;
+    private float _speed = 2;
 
     public NavMeshAgent NavMeshAgent => _navMesh;
 
