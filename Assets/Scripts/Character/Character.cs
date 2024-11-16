@@ -1,7 +1,8 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterMovement))]
-public class Character : Health
+public class Character : Health , IValue
 {
     [SerializeField] private CharacterView _characterView;
 
@@ -9,9 +10,13 @@ public class Character : Health
     private CharacterMovement _movement;
     private CharacterStateMachine _stateMachine;
 
+    int IValue.MaxValue => MaxValue;
+    int IValue.Value => Value;
     public CharacterMovement Movement => _movement;
     public CharacterView CharacterView => _characterView;
     public CharacterShooting CharacterShooting => _characterShooting;
+
+    public event Action<int> Changed;
 
     private void Awake()
     {
@@ -29,6 +34,7 @@ public class Character : Health
     public override void TakeDamage(int damage)
     {
         Value -= damage;
+        Changed?.Invoke(Value);
 
         if (Value <= 0)
         {
